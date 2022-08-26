@@ -3,9 +3,29 @@
 <br>
 <h1>Compose </h1>
 
-<form class="" action="/" method="post">
-  <input type="text" name="newCompose"  >
-  <button type="submit" name="button">Publish</button>
-</form>
+<div class="">
+  <form class="" action="/compose" method="post">
 
+    <div>
+        <label class="desc" id="title3" for="Field3">
+          Title
+        </label>
+        <div>
+          <input id="Field3" name="title" type="email" spellcheck="false" value="" maxlength="255" tabindex="3" size="153">
+       </div>
+      </div>
+
+      <div>
+        <label class="desc" id="title4" for="Field4">
+          Post
+        </label>
+
+        <div>
+          <textarea id="Field4" name="post" spellcheck="true" rows="5" cols="155" tabindex="4"></textarea>
+        </div>
+      </div>
+
+    <button type="submit" name="button" class="btn">Publish </button>
+  </form>
+</div>
 <%- include('partials/footer'); -%>
