@@ -8,21 +8,73 @@ const homeStartingContent = "Lacus vel facilisis volutpat est velit egestas dui 
 const aboutContent = "Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Non diam phasellus vestibulum lorem sed. Platea dictumst quisque sagittis purus sit. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Mauris in aliquam sem fringilla. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Amet massa vitae tortor condimentum lacinia quis vel eros. Enim ut tellus elementum sagittis vitae. Mauris ultrices eros in cursus turpis massa tincidunt dui.";
 const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
 
+
+let array=[];
+
 const app = express();
-
 app.use(express.static(__dirname + '/public'));
-
 app.set('view engine', 'ejs');
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-app.get("/",function(req, res){
-  // res.render("home");
-  res.render("home",{textoHome:homeStartingContent
 
-  });
-  //console.log(req.head.li);
+app.get("/",function(req, res){
+
+
+
+
+});
+
+app.post("/compose", function(req, res){
+const  newCompost={titulo:req.body.title,
+    contenido:req.body.post
+  };
+  array.push(newCompost);
+//array=newCompost;
+  res.redirect("/home");
+});
+
+
+app.get("/home",function(req,res){
+//   var arr_like_obj = {
+//     0: "we",
+//     1: "are",
+//     2: "capscode",
+//     length: 3,
+//   };
+// console.log(arr_like_obj);
+// console.log(array);
+
+
+// array = JSON.parse(JSON.stringify(array));
+// console.log(array.titulo);
+//
+
+ // var object = array.reduce(
+ //   (obj, item) => Object.assign(obj, { [item.titulo]: item.contenido }), {});
+ // console.log(object);
+
+  //Object.values(array).forEach(item => {string2 += item});
+  // console.log(typeof array);
+   //console.log(array.contenido);
+
+     // array.forEach((item) => {
+     //   console.log("El valor de "+item);
+     // });
+
+//console.log(array[0].titulo);
+
+ //console.log(array);
+for (i=0;i<array.length; i++)
+  {
+    //console.log(i);
+    console.log(array[i].titulo);
+   }
+
+// //array = JSON.parse(JSON.stringify(array));
+   res.render("home",{textoHome:homeStartingContent,newTexto:array
+//
+ });
 });
 
 app.get("/about",function(req, res){
@@ -45,9 +97,6 @@ app.get("/compose",function(req, res){
 
 });
 
-app.post("/compose", function(req, res){
-  console.log(req.body.newCompose);
-});
 
 
 app.listen(3000, function() {
