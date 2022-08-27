@@ -59,17 +59,18 @@ app.get("/home",function(req,res){
    //console.log(array.contenido);
 
      // array.forEach((item) => {
-     //   console.log("El valor de "+item);
+     //   console.log("El valor de "+item.titulo);
      // });
 
 //console.log(array[0].titulo);
 
  //console.log(array);
-for (i=0;i<array.length; i++)
-  {
-    //console.log(i);
-    console.log(array[i].titulo);
-   }
+// for (i=0;i<array.length; i++)
+//   {
+//     //console.log(i);
+//     console.log(array[i].titulo);
+//    }
+
 
 // //array = JSON.parse(JSON.stringify(array));
    res.render("home",{textoHome:homeStartingContent,newTexto:array

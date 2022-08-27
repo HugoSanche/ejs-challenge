@@ -3,11 +3,12 @@
 
 <h1>home </h1>
 <p><%= textoHome %></p>
-<p><% newTexto.contenido  %></p>
 
+<% newTexto.forEach((item) => { %>
+<h1><%= item.titulo  %></h1>
+<p><%= item.contenido  %></p>
 
-<ul>
-  <li><%= newTexto %></li>
-</ul>
+<% }); %>
+
 
 <%- include('partials/footer'); -%>
