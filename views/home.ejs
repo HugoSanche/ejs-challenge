@@ -5,10 +5,13 @@
 <p><%= textoHome %></p>
 
 <% newTexto.forEach((item) => { %>
-  <%=postWithOutSpaces=item.titulo; %>
-  <%=postWithOutSpaces=item.titulo.replace(/\s+/g,'-'); %>
-  <%=postWithOutSpaces=postWithOutSpaces.toLowerCase(); %>
 <h1><%= item.titulo  %></h1>
-<p><%= item.contenido.substring(0,100)+" ..."  %><a href="/post/<%= postWithOutSpaces%>">Read More</a>
+<%postWithOutSpaces=item.titulo; %>
+<%postWithOutSpaces=postWithOutSpaces.replace(/\s+/g,'-'); %>
+<%postWithOutSpaces=postWithOutSpaces.toLowerCase(); %>
+<p><%= item.contenido.substring(0,100)+" ..."  %><a href="/post/<%=postWithOutSpaces%>">Read More</a>
+
 <% }); %>
+
+
 <%- include('partials/footer'); -%>
