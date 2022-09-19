@@ -54,7 +54,7 @@ app.get("/post/:postId", function(req, res){
       titulo=item.titulo;
       titulo=titulo.replace(/\s+/g,'-');  //sustituimos espacios en blanco to "-""
       titulo=titulo.toLowerCase();        //convertimos el titulo a minusculas
-      tituloId=quitaEspaciosMayuIdTitle(req.params.postId);   
+      tituloId=quitaEspaciosMayuIdTitle(req.params.postId);
       //compara lo que se escribio en el post del navegador sea igual a lo que se escribio en el articulo
       //Ejemplo:
       if (titulo===tituloId){
@@ -67,7 +67,8 @@ app.get("/post/:postId", function(req, res){
 //Aqui se muestran todas las tareas creadas
 app.get("/home",function(req,res){
   //cleanTitle(array);
-   res.render("home",{textoHome:homeStartingContent,newTexto:array
+   res.render("home",{textoHome:homeStartingContent,
+                      newTexto:array
  });
 });
 

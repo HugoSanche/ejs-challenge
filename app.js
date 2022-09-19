@@ -76,8 +76,11 @@ const newItem=new Compost ({
     contenido:req.body.post
   });
 
-  newItem.save();
-  res.redirect("/home");
+  newItem.save(function(err){
+    if(!err)
+      res.redirect("/home");
+  });
+
 });
 
 //En base al titulo se manda a llamar el post.
@@ -86,6 +89,8 @@ const newItem=new Compost ({
 app.get("/post/:postId", function(req, res){
     let tituloId;
     let titulo;
+
+
 Compost.find(function(err, array){
   array.forEach((item) => {
     titulo=item.titulo;
@@ -103,8 +108,6 @@ Compost.find(function(err, array){
 
 });
 
-
-
 app.get("/about",function(req, res){
   res.render("about",{textoAbout:aboutContent
   });
@@ -114,7 +117,6 @@ app.get("/contact",function(req, res){
   res.render("contact",{textoContact:contactContent
   });
 });
-
 
 app.get("/compose",function(req, res){
   res.render("compose");
